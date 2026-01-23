@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Mesquita Viana - AI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #2a0c29; /* Deep violet */
+            color: #f5e5c5; /* Pale Parchment */
+            font-family: 'Times New Roman', Times, serif;
+            overflow-x: hidden;
+            position: relative;
+            /* Tiled background for the entire page */
+            background-image: url('assets/background_tile_neutral_1.png');
+            background-repeat: repeat;
+            background-attachment: fixed; /* Keeps the background stationary on scroll */
+            background-size: 300px; /* Controls the size of the tile before it repeats */
+        }
+        
+        /* --- New Border Asset Styles --- */
+        #border-container {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .border-element {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* Corners */
+        #corner-tl { top: 0; left: 0; width: 150px; height: 150px; }
+        #corner-tr { top: 0; right: 0; width: 250px; height: 250px; }
+        #corner-bl { bottom: 0; left: 0; width: 250px; height: 250px; }
+        #corner-br { bottom: 0; right: 0; width: 150px; height: 150px; }
+
+        /* Edge Containers */
+        .edge-container-h {
+            display: flex;
+            align-items: flex-start;
+            position: absolute;
+            height: 80px; /* Adjust height of horizontal border pieces */
+        }
+        #top-edge {
+            top: 0;
+            left: 150px; /* Width of top-left corner */
+            right: 250px; /* Width of top-right corner */
+        }
+        #bottom-edge {
+            bottom: 0;
+            left: 250px; /* Width of bottom-left corner */
+            right: 150px; /* Width of bottom-right corner */
+        }
+
+        .edge-container-v {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            width: 80px; /* Adjust width of vertical border pieces */
+        }
+        #left-edge {
+            left: 0;
+            top: 150px; /* Height of top-left corner */
+            bottom: 250px; /* Height of bottom-left corner */
+        }
+        #right-edge {
+            right: 0;
+            top: 250px; /* Height of top-right corner */
+            bottom: 150px; /* Height of bottom-right corner */
+        }
+
+        /* Edge Pieces and Tiles */
+        .edge-piece {
+            flex-shrink: 0; /* Prevent pieces from shrinking */
+        }
+        .tile-h {
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+        }
+         .tile-v {
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat-y;
+            background-size: 100% auto;
+        }
+
+
+        @media (max-width: 1024px) { /* Hides complex border on smaller screens */
+            #border-container {
+                display: none;
+            }
+        }
+
+
+        .font-decorative {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        .gold-text { color: #eac67a; }
+        .tech-glow { text-shadow: 0 0 12px rgba(234, 198, 122, 0.6); }
+        .glowing-effect {
+            box-shadow: 0 0 15px 3px rgba(234, 198, 122, 0.4);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .glowing-effect:hover { box-shadow: 0 0 25px 8px rgba(234, 198, 122, 0.6); }
+        .glowing-asset {
+            filter: drop-shadow(0 0 10px rgba(234, 198, 122, 0.5));
+            transition: filter 0.3s ease-in-out;
+        }
+        .glowing-asset:hover { filter: drop-shadow(0 0 15px rgba(234, 198, 122, 0.8)); }
+        
+        .text-outline {
+            text-shadow: 
+                -1.5px -1.5px 0 #1c081b, 1.5px -1.5px 0 #1c081b,
+                -1.5px 1.5px 0 #1c081b, 1.5px 1.5px 0 #1c081b,
+                -1.5px 0px 0 #1c081b, 1.5px 0px 0 #1c081b,
+                0px -1.5px 0 #1c081b, 0px 1.5px 0 #1c081b,
+                0 0 12px rgba(234, 198, 122, 0.6);
+        }
+
+        @keyframes spin-flip {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(1260deg); }
+        }
+        .card-container { perspective: 2000px; }
+        .card-inner {
+            position: relative; width: 100%; height: 100%;
+            transform-style: preserve-3d;
+        }
+        .card-container.flipped .card-inner { animation: spin-flip 1.5s forwards; }
+        .card-container.unflipped .card-inner {
+            transition: transform 0.8s;
+            transform: rotateY(0deg);
+        }
+        .card-front, .card-back {
+            position: absolute; width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        .card-back {
+            background-color: #3e1a3c;
+            border: 2px solid rgba(234, 198, 122, 0.5);
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center;
+        }
+        #news-section {
+            background-color: rgba(42, 12, 41, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(234, 198, 122, 0.2);
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- New Border Assets Implementation -->
+    <div id="border-container">
+        <!-- Corners -->
+        <img src="assets/top-left-corner.png" id="corner-tl" class="border-element" alt="">
+        <img src="assets/top-right-corner.png" id="corner-tr" class="border-element" alt="">
+        <img src="assets/bottom-left-corner.png" id="corner-bl" class="border-element" alt="">
+        <img src="assets/bottom-right-corner.png" id="corner-br" class="border-element" alt="">
+
+        <!-- Edges -->
+        <div id="top-edge" class="edge-container-h">
+            <img src="assets/middle-left.png" class="edge-piece h-full" alt="">
+            <div class="tile-h" style="background-image: url('assets/middle-tile-2.png')"></div>
+            <img src="assets/bottom-middle.png" class="edge-piece h-full" alt="">
+            <div class="tile-h" style="background-image: url('assets/middle-tile-2.png')"></div>
+            <img src="assets/middle-right.png" class="edge-piece h-full" alt="">
+        </div>
+        <div id="bottom-edge" class="edge-container-h">
+            <img src="assets/middle-left.png" class="edge-piece h-full" alt="">
+            <div class="tile-h" style="background-image: url('assets/middle-tile-2.png')"></div>
+            <img src="assets/bottom-middle.png" class="edge-piece h-full" alt="">
+            <div class="tile-h" style="background-image: url('assets/middle-tile-2.png')"></div>
+            <img src="assets/middle-right.png" class="edge-piece h-full" alt="">
+        </div>
+        <div id="left-edge" class="edge-container-v">
+            <div class="tile-v" style="background-image: url('assets/left.png')"></div>
+            <img src="assets/center.png" class="edge-piece w-full" alt="">
+            <div class="tile-v" style="background-image: url('assets/left.png')"></div>
+        </div>
+        <div id="right-edge" class="edge-container-v">
+            <div class="tile-v" style="background-image: url('assets/right.png')"></div>
+            <img src="assets/center.png" class="edge-piece w-full" alt="">
+            <div class="tile-v" style="background-image: url('assets/right.png')"></div>
+        </div>
+    </div>
+
+
+    <main class="container mx-auto px-8 md:px-24 lg:px-72 py-8 md:py-24 lg:py-72">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <div class="relative w-80 h-300 mx-auto mb-6">
+                <img src="assets/face-frame.png" alt="Matheus Viana" class="relative w-full h-full object-cover p-6">
+            </div>
+
+            <h1 class="font-decorative text-4xl md:text-5xl gold-text text-outline mb-4 max-w-3xl mx-auto">
+                Understanding AI Behavior and User Adoption to Build Better User-Centered Tools
+            </h1>
+            
+            <img src="assets/between title and contacts.png" alt="Decorative Divider" class="mx-auto my-4 h-16 w-96 glowing-asset">
+            
+            <a href="mailto:mmv5513@psu.edu" class="text-lg gold-text hover:underline">mmv5513@psu.edu</a>
+
+            <div class="flex items-start justify-center space-x-8 mt-6">
+                <!-- About Me Button -->
+                <a href="about.html" class="flex flex-col items-center w-24 text-center group" title="About Me">
+                    <img src="assets/about me.png" alt="About Me" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">About Me</span>
+                </a>
+                <!-- CV Button -->
+                <a href="CV.pdf" target="_blank" class="flex flex-col items-center w-24 text-center group" title="CV">
+                   <img src="assets/cv.png" alt="CV" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                   <span class="mt-2 text-sm gold-text">CV</span>
+                </a>
+                <!-- Publications Button -->
+                <a href="publications.html" class="flex flex-col items-center w-24 text-center group" title="Publications">
+                    <img src="assets/publications.png" alt="Publications" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Publications</span>
+                </a>
+                <!-- Collaborators Button -->
+                <a href="collaborators.html" class="flex flex-col items-center w-24 text-center group" title="Collaborators">
+                    <img src="assets/colaborators.png" alt="Collaborators" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Collaborators</span>
+                </a>
+                <!-- Email Button -->
+                <a href="mailto:mmv5513@psu.edu" class="flex flex-col items-center w-24 text-center group" title="Email">
+                    <img src="assets/email.png" alt="Email" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Email</span>
+                </a>
+                <!-- GitHub Button -->
+                <a href="https://github.com/TheMattViana" target="_blank" class="flex flex-col items-center w-24 text-center group" title="GitHub">
+                    <img src="assets/github.png" alt="GitHub" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">GitHub</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- News Section -->
+        <section id="news-section" class="my-16 py-8 px-4">
+            <h2 class="text-center font-decorative text-5xl gold-text text-outline mb-12">NEWS & INTERESTS</h2>
+            <div id="tarot-deck" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <!-- Tarot cards generated by JS -->
+            </div>
+        </section>
+
+        <!-- Footer Section with Divider and Buttons -->
+        <footer class="text-center pt-8 pb-16">
+            <img src="assets/between title and contacts.png" alt="Decorative Divider" class="mx-auto my-6 h-16 w-96 glowing-asset">
+
+            <div class="flex items-start justify-center space-x-8 mt-6">
+                 <!-- About Me Button -->
+                <a href="about.html" class="flex flex-col items-center w-24 text-center group" title="About Me">
+                    <img src="assets/about me.png" alt="About Me" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">About Me</span>
+                </a>
+                <!-- CV Button -->
+                <a href="CV.pdf" target="_blank" class="flex flex-col items-center w-24 text-center group" title="CV">
+                   <img src="assets/cv.png" alt="CV" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                   <span class="mt-2 text-sm gold-text">CV</span>
+                </a>
+                <!-- Publications Button -->
+                <a href="publications.html" class="flex flex-col items-center w-24 text-center group" title="Publications">
+                    <img src="assets/publications.png" alt="Publications" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Publications</span>
+                </a>
+                <!-- Collaborators Button -->
+                <a href="collaborators.html" class="flex flex-col items-center w-24 text-center group" title="Collaborators">
+                    <img src="assets/colaborators.png" alt="Collaborators" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Collaborators</span>
+                </a>
+                <!-- Email Button -->
+                <a href="mailto:mmv5513@psu.edu" class="flex flex-col items-center w-24 text-center group" title="Email">
+                    <img src="assets/email.png" alt="Email" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">Email</span>
+                </a>
+                <!-- GitHub Button -->
+                <a href="https://github.com/TheMattViana" target="_blank" class="flex flex-col items-center w-24 text-center group" title="GitHub">
+                    <img src="assets/github.png" alt="GitHub" class="w-20 h-20 object-cover glowing-asset group-hover:glowing-asset">
+                    <span class="mt-2 text-sm gold-text">GitHub</span>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const OPEN_DURATION = 5000;
+            const CLOSED_DURATION = 2000;
+            const NUM_CARDS = 3;
+            
+            const tarotBackAssets = [
+                'assets/tarot 1.png',
+                'assets/tarot 2.png'
+            ];
+            let currentBackIndex = 0;
+
+            const newsItems = [
+                { title: "Paper Submission", date: "September 2025", content: "Our work, 'Extended AI Interactions Shape Sycophancy and Perspective Mimesis,' was submitted to the ACM CHI Conference." },
+                { title: "ICDS Rising Researcher", date: "August 2025", content: "Honored to receive the ICDS Rising Researcher Grant from the Institute for Computational and Data Sciences." },
+                { title: "Rednor Fellowship", date: "May 2025", content: "Awarded the Rednor Graduate Fellowship for the 2025-2026 academic year by the College of IST." },
+            ];
+            
+            const allPossibleContents = newsItems.map(item => `<h3 class="font-decorative gold-text text-xl mb-2">${item.title}</h3><p class="text-sm">${item.content}</p><p class="text-xs text-gray-400 mt-4">${item.date}</p>`);
+            
+            while (allPossibleContents.length < NUM_CARDS) {
+                allPossibleContents.push(`<h3 class="font-decorative gold-text text-xl mb-2">Awaiting Revelation</h3><p class="text-sm">The future is yet to be written. More news is coming soon.</p>`);
+            }
+
+            const tarotDeck = document.getElementById('tarot-deck');
+
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            function updateAndFlipOpen() {
+                const cardContainers = document.querySelectorAll('.card-container');
+                shuffle(allPossibleContents);
+
+                cardContainers.forEach((card, index) => {
+                    const cardBack = card.querySelector('.card-back');
+                    cardBack.innerHTML = allPossibleContents[index % allPossibleContents.length];
+                    
+                    const cardFront = card.querySelector('.card-front');
+                    cardFront.style.backgroundImage = `url('${tarotBackAssets[currentBackIndex]}')`;
+                    
+                    card.classList.remove('unflipped');
+                    card.classList.add('flipped');
+                });
+                
+                currentBackIndex = (currentBackIndex + 1) % tarotBackAssets.length;
+            }
+
+            function animationLoop() {
+                const cardContainers = document.querySelectorAll('.card-container');
+                
+                cardContainers.forEach(card => {
+                    card.classList.remove('flipped');
+                    card.classList.add('unflipped');
+                    card.querySelector('.card-inner').style.animation = 'none';
+                });
+                
+                setTimeout(() => {
+                    cardContainers.forEach(card => {
+                        card.querySelector('.card-inner').style.animation = '';
+                    });
+                    updateAndFlipOpen();
+                }, CLOSED_DURATION);
+            }
+
+            for (let i = 0; i < NUM_CARDS; i++) {
+                const cardContainer = document.createElement('div');
+                cardContainer.className = 'card-container h-96 w-72 mx-auto group';
+                cardContainer.innerHTML = `<div class="card-inner"><div class="card-front bg-cover bg-no-repeat bg-center"></div><div class="card-back"></div></div>`;
+                tarotDeck.appendChild(cardContainer);
+            }
+            
+            updateAndFlipOpen();
+            setInterval(animationLoop, OPEN_DURATION + CLOSED_DURATION);
+        });
+    </script>
+
+</body>
+</html>
+
