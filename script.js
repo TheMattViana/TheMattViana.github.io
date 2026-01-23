@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
-    const backingAssets = ['assets/tarot 1.png', 'assets/tarot 2.png'];
+    const backingAssets = ['assets/tarot_1.png', 'assets/tarot_2.png'];
     let currentBackIndex = 0; // Starts with index 0 (tarot 1.png)
 
     // Configuration
