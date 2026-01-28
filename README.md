@@ -1,49 +1,73 @@
-# Personal Portfolio Website - The Matt Viana
+# React + TypeScript + Vite
 
-This is a personal portfolio website for an AI Researcher and PhD Student, featuring a unique Tarot Card interactive component and an academic/mystical aesthetic.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- **Responsive Design:** Built with HTML5 and CSS3.
-- **Academic/Mystical Theme:** Custom typography (Times New Roman, Georgia), gold accents, and unique background tiles for each page.
-- **Interactive Tarot Component:** A carousel of 3D flipping cards that cycle through information (News, Publications, Mission) with an animated backing image swap.
-- **GitHub Pages Ready:** Uses relative paths for easy deployment.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## How to Access the Website (URLs)
+## React Compiler
 
-The URL of your website depends on the name of your GitHub repository.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### Option 1: User Site (Recommended)
-If you want your website to be at `https://TheMattViana.github.io/`:
-1.  **Rename this repository** to exactly `TheMattViana.github.io`.
-2.  The site will be published at `https://TheMattViana.github.io/`.
+## Expanding the ESLint configuration
 
-### Option 2: Project Site
-If your repository has any other name (e.g., `portfolio-website`), your website will be at:
-`https://TheMattViana.github.io/portfolio-website/`
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-**Note:** Ensure you visit the `https` version. It may take a few minutes for the site to appear after deployment.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## Deployment Instructions
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-1.  **Push** this code to your GitHub repository.
-2.  Go to the repository **Settings**.
-3.  Navigate to the **Pages** section (on the left sidebar).
-4.  Under **Build and deployment**:
-    - **Source:** Select `Deploy from a branch`.
-    - **Branch:** Select your main branch (e.g., `main` or `master`) and folder `/ (root)`.
-5.  Click **Save**.
-6.  Look at the top of the page for the message: "Your site is live at..."
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Project Structure
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- `index.html`: Home page.
-- `style.css`: Global styles.
-- `script.js`: Tarot animation logic.
-- `assets/`: Images (all filenames use underscores, e.g., `tarot_1.png`).
-- `*.html`: Secondary pages.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Troubleshooting
-
-- **Images not loading?** Ensure you are not using absolute paths (starting with `/`). All paths in this code are relative (e.g., `assets/image.png`).
-- **404 Error?** Double-check the URL. If using a project site (Option 2), make sure the repository name is included in the URL.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
