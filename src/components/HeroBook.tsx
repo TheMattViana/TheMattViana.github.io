@@ -46,7 +46,7 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
     return (
         <section className="min-h-screen md:min-h-[80vh] flex flex-col md:flex-row bg-emerald-deep relative overflow-hidden">
             <div className="w-full md:w-[60%] p-8 md:p-20 flex flex-col justify-center relative z-10">
-                <div className="font-serif text-lg md:text-xl leading-relaxed text-cream tracking-wide text-justify">
+                <div className="font-serif text-xl md:text-3xl leading-relaxed text-cream tracking-wide text-justify">
                     <span>{displayText}</span>
                     {!disableTyping && <CustomCursor />}
                 </div>
@@ -69,9 +69,9 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
 
                 {/* Caption / Subtitle */}
                 <div className="mt-8 text-center max-w-sm">
-                    <p className="font-serif text-gold-antique text-lg leading-tight mb-2">PhD Student in Informatics at Penn State</p>
+                    <p className="font-serif text-gold-antique text-2xl leading-tight mb-2">PhD Student in Informatics at Penn State</p>
                     <div className="h-px w-16 bg-gold-antique/30 mx-auto my-3"></div>
-                    <p className="font-sans text-cream/70 text-sm leading-relaxed">
+                    <p className="font-sans text-cream/70 text-lg leading-relaxed">
                         Data Scientist and AI researcher, seeking to leverage and understand deep learning for impactful solutions
                     </p>
                 </div>
