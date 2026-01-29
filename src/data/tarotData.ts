@@ -1,91 +1,108 @@
-export type Snippet = {
-    id: string;
-    type: 'text' | 'image';
+import { academicProjects } from './academicData';
+import { newsData } from './newsData';
+import { collaborators } from './collaborators';
+import { vibecodingProjects } from './vibecodingData';
+
+export interface Snippet {
+    id: number;
+    title: string;
     content: string;
     linkUrl: string;
-    backPatternVariant: 'emerald' | 'cream';
-    title?: string;
+    type: 'paper' | 'news' | 'collab' | 'project' | 'resource' | 'statement';
+}
+
+const generateSnippets = (): Snippet[] => {
+    let idCounter = 1;
+    const snippets: Snippet[] = [];
+
+    // 1. News Items
+    newsData.forEach(item => {
+        snippets.push({
+            id: idCounter++,
+            title: item.title,
+            content: `${item.date} - ${item.description}`,
+            linkUrl: item.link,
+            type: 'news'
+        });
+    });
+
+    // 2. Academic Papers
+    academicProjects.forEach(paper => {
+        snippets.push({
+            id: idCounter++,
+            title: "Latest Publication",
+            content: paper.title, // Paper title as content to keep it shorter? Or Abstract? Title is better for card.
+            linkUrl: paper.link,
+            type: 'paper'
+        });
+        // Add another card for abstract
+        snippets.push({
+            id: idCounter++,
+            title: "Research Abstract",
+            content: paper.abstract,
+            linkUrl: paper.link,
+            type: 'paper'
+        });
+    });
+
+    // 3. Collaborators
+    collaborators.forEach(collab => {
+        snippets.push({
+            id: idCounter++,
+            title: "Research Collaborator",
+            content: `${collab.name}, ${collab.affiliations[0]} - ${collab.affiliations[1] || ''}`,
+            linkUrl: "/collaborators",
+            type: 'collab'
+        });
+    });
+
+    // 4. Vibecoding
+    vibecodingProjects.forEach(proj => {
+        snippets.push({
+            id: idCounter++,
+            title: "Vibecoding Project",
+            content: `${proj.title}: ${proj.description}`,
+            linkUrl: proj.link,
+            type: 'project'
+        });
+    });
+
+    // 5. Fixed Resources / Statements
+    const staticResources: Array<Omit<Snippet, 'id' | 'type'> & { type: Snippet['type'] }> = [
+        {
+            title: "Curriculum Vitae",
+            content: "Review my full academic and professional history, including publications, awards, and experience.",
+            linkUrl: "/cv.pdf",
+            type: "resource"
+        },
+        {
+            title: "Writing Sample",
+            content: "Read my latest work: 'Interaction Context Often Increases Sycophancy in LLMs'.",
+            linkUrl: "/writing_sample.pdf",
+            type: "resource"
+        },
+        {
+            title: "Mission Statement",
+            content: "I investigate how user interactions with 'black box' AI systems can expose unintended model behaviors.",
+            linkUrl: "/about",
+            type: "statement"
+        },
+        {
+            title: "Contact",
+            content: "Interested in collaboration? Reach out for research opportunities or creative projects.",
+            linkUrl: "/contact",
+            type: "resource"
+        }
+    ];
+
+    staticResources.forEach(res => {
+        snippets.push({
+            id: idCounter++,
+            ...res
+        });
+    });
+
+    return snippets;
 };
 
-export const allSnippets: Snippet[] = [
-    {
-        id: '1',
-        type: 'text',
-        title: 'The Algorithm',
-        content: 'Exploring the beauty of recursive functions and their application in natural systems.',
-        linkUrl: '#',
-        backPatternVariant: 'emerald',
-    },
-    {
-        id: '2',
-        type: 'text',
-        title: 'Nouveau Web',
-        content: 'Reimagining the web as a canvas for digital craftsmanship.',
-        linkUrl: '#',
-        backPatternVariant: 'cream',
-    },
-    {
-        id: '3',
-        type: 'text',
-        title: 'Project A',
-        content: 'A deep dive into neural networks and art generation.',
-        linkUrl: '#',
-        backPatternVariant: 'emerald',
-    },
-    {
-        id: '4',
-        type: 'text',
-        title: 'Vibecoding',
-        content: 'Coding as a form of expression, not just utility.',
-        linkUrl: '#',
-        backPatternVariant: 'cream',
-    },
-    {
-        id: '5',
-        type: 'text',
-        title: 'Latency',
-        content: 'Optimizing for the speed of thought.',
-        linkUrl: '#',
-        backPatternVariant: 'emerald',
-    },
-    {
-        id: '6',
-        type: 'text',
-        title: 'Future Study',
-        content: 'What comes after the screen?',
-        linkUrl: '#',
-        backPatternVariant: 'cream',
-    },
-    {
-        id: '7',
-        type: 'text',
-        title: 'Design System',
-        content: 'Building a language of interaction.',
-        linkUrl: '#',
-        backPatternVariant: 'emerald',
-    },
-    {
-        id: '8',
-        type: 'text',
-        title: 'Open Source',
-        content: 'Contributing to the collective intelligence.',
-        linkUrl: '#',
-        backPatternVariant: 'cream',
-    },
-    {
-        id: '9',
-        type: 'text',
-        title: 'Graph Theory',
-        content: 'Connecting the dots in complex data.',
-        linkUrl: '#',
-        backPatternVariant: 'emerald',
-    },
-    {
-        id: '10',
-        type: 'text',
-        title: 'Ethical AI',
-        content: 'Ensuring our creations serve humanity.',
-        linkUrl: '#',
-        backPatternVariant: 'cream',
-    },
-];
+export const allSnippets = generateSnippets();

@@ -11,8 +11,15 @@ const Collaborators = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {collaborators.map((collab) => (
-                            <div key={collab.id} className="bg-cream/5 border border-gold-antique/30 p-8 rounded-sm hover:border-gold-antique/60 transition-colors">
-                                <h3 className="font-serif text-2xl text-cream mb-2">{collab.name}</h3>
+                            <div key={collab.id} className="bg-cream/5 border border-gold-antique/30 p-8 rounded-sm hover:border-gold-antique/60 transition-colors relative">
+                                {collab.name.includes("Dana Calacci") && (
+                                    <div className="absolute top-4 right-4 bg-gold-antique text-charcoal text-[10px] md:text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                                        My Advisor
+                                    </div>
+                                )}
+                                <h3 className={`font-serif text-2xl mb-2 ${collab.name.includes("Dana Calacci") ? "text-gold-antique font-bold" : "text-cream"}`}>
+                                    {collab.name}
+                                </h3>
 
                                 <div className="mb-4">
                                     {collab.affiliations.map((aff, i) => (
