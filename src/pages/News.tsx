@@ -23,6 +23,15 @@ const newsItems = [
         )
     },
     {
+        date: "December 2025",
+        title: "ICDS Rising Researcher Talk",
+        content: (
+            <p className="font-sans text-cream/80 text-lg">
+                Selected to give a talk as a <span className="text-gold-antique">Rising Researcher</span> at the Institute for Computational and Data Sciences.
+            </p>
+        )
+    },
+    {
         date: "August 2025",
         title: "Jordan Rednor Scholarship",
         content: (
@@ -37,6 +46,15 @@ const newsItems = [
         content: (
             <p className="font-sans text-cream/80 text-lg">
                 Started my PhD in Informatics at <span className="text-gold-antique">Penn State University</span> under the advisement of <a href="https://www.dcalacci.net/" target="_blank" className="underline decoration-gold-antique/30 hover:decoration-gold-antique transition-all">Dana Calacci</a>.
+            </p>
+        )
+    },
+    {
+        date: "July 2025",
+        title: "ICDS Rising Researcher Grant",
+        content: (
+            <p className="font-sans text-cream/80 text-lg">
+                Awarded the <span className="text-gold-antique">ICDS Rising Researcher Grant</span>.
             </p>
         )
     }

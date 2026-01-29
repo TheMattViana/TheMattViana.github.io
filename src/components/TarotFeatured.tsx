@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { allSnippets, type Snippet } from '../data/tarotData';
 import tarotEmerald from '../assets/tarot_card_back_emerald.png';
 import tarotCream from '../assets/tarot_card_back_cream.png';
@@ -10,21 +10,13 @@ const getRandomSelection = (count: number) => {
 };
 
 const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippet, isOpen: boolean, isMobile: boolean, backVariant: 'emerald' | 'cream' }) => {
-    const [localFlipped, setLocalFlipped] = useState(false);
-
-    // On mobile, flipping is local. On desktop, it's controlled by parent.
-    const isFlipped = isMobile ? localFlipped : isOpen;
-
-    const handleMobileClick = () => {
-        if (isMobile) {
-            setLocalFlipped(!localFlipped);
-        }
-    };
+    // On mobile, we rely on the passed `isOpen` (which is driven by view state)
+    // On desktop, we rely on the passed `isOpen` (driven by timer)
+    const isFlipped = isOpen;
 
     return (
         <div
             className={`relative perspective-1000 cursor-pointer group ${isMobile ? 'min-w-[75vw] aspect-[3/5] snap-center shrink-0' : 'w-full aspect-[3/5]'}`}
-            onClick={handleMobileClick}
         >
             <motion.div
                 className="w-full h-full relative p-[2px]" /* Padding for glow container */
@@ -69,6 +61,17 @@ const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippe
     );
 };
 
+const MobileTarotWrapper = ({ snippet, backVariant }: { snippet: Snippet, backVariant: 'emerald' | 'cream' }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { amount: 0.8 }); // Trigger when 80% visible
+
+    return (
+        <div ref={ref}>
+            <TarotCard snippet={snippet} isOpen={isInView} isMobile={true} backVariant={backVariant} />
+        </div>
+    );
+};
+
 const TarotFeatured: React.FC = () => {
     const [currentSnippets, setCurrentSnippets] = useState<Snippet[]>([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -78,14 +81,7 @@ const TarotFeatured: React.FC = () => {
 
     // Initialize
     useEffect(() => {
-        setCurrentSnippets(getRandomSelection(6)); // Start with 6 for grid
-        // Prompt asked for 3x5y size for containers, usually implies aspect ratio.
-        // If we want a grid of cards, let's keep it responsive.
-        // Actually prompt says "3x 5y ratio" for ASSETS.
-        // "Add them to the tarot cards on the home page."
-
-        // Let's stick to 3 cards for now if they are large 3:5, or 6 if grid.
-        // Grid was 3 cols x 2 rows previously.
+        setCurrentSnippets(getRandomSelection(6));
         const handleResize = () => setIsMobile(window.innerWidth < 768);
         handleResize();
         window.addEventListener('resize', handleResize);
@@ -105,7 +101,6 @@ const TarotFeatured: React.FC = () => {
     // Timer Logic (Desktop Only)
     useEffect(() => {
         if (isMobile) {
-            setIsOpen(false);
             return;
         }
 
@@ -128,16 +123,19 @@ const TarotFeatured: React.FC = () => {
         return () => clearTimeout(paramsTimeout);
     }, [isOpen, isMobile, isHovered]);
 
+    // Generate a long list for infinite scroll feel on mobile
+    // Repeat the snippets 10 times
+    const mobileSnippets = Array(10).fill(currentSnippets).flat().map((s, i) => ({ ...s, uniqueKey: `${s.id}-${i}` }));
+
     return (
         <section className="py-24 px-6 md:px-16 bg-charcoal min-h-screen flex flex-col items-center justify-center relative border-t-4 border-gold-antique/20">
 
             <div className="mb-12 text-center">
                 <h2 className="font-serif text-4xl md:text-5xl text-gold-antique mb-2">The Archive</h2>
-                <p className="font-sans text-cream text-opacity-60 text-sm">Randomized selection from the database</p>
+                <p className="font-sans text-cream text-opacity-60 text-sm">Things I think you will like, or spoilers, or the goings on of ...</p>
             </div>
 
             {/* Desktop Grid: 3 columns x 2 rows */}
-            {/* Height auto to respect aspect ratio */}
             <div
                 className="hidden md:grid grid-cols-3 gap-8 w-full max-w-6xl"
                 onMouseEnter={() => setIsHovered(true)}
@@ -152,8 +150,8 @@ const TarotFeatured: React.FC = () => {
 
             {/* Mobile Carousel */}
             <div className="md:hidden w-full flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-12 pt-4 no-scrollbar">
-                {currentSnippets.map((snippet) => (
-                    <TarotCard key={`mobile-${snippet.id}`} snippet={snippet} isOpen={false} isMobile={true} backVariant={backVariant} />
+                {mobileSnippets.map((snippet) => (
+                    <MobileTarotWrapper key={snippet.uniqueKey} snippet={snippet} backVariant={backVariant} />
                 ))}
             </div>
 

@@ -1,7 +1,21 @@
 
 export const vibecodingProjects = [
-    { title: "Generative Flora", description: "Procedural plant generation using fractal algorithms.", image: "https://picsum.photos/seed/flora/800/600", link: "/vibecoding" },
-    { title: "Audio Reactive Shader", description: "Real-time GLSL shader reacting to frequency inputs.", image: "https://picsum.photos/seed/shader/800/600", link: "/vibecoding" },
-    { title: "Data Sonification", description: "Turning stock market data into ambient soundscapes.", image: "https://picsum.photos/seed/sound/800/600", link: "/vibecoding" },
-    { title: "The Void", description: "Interactive particle system simulation.", image: "https://picsum.photos/seed/void/800/600", link: "/vibecoding" },
+    {
+        title: "LOTR Mod: Middle-earth Reforged",
+        description: "A comprehensive Minecraft mod expansion featuring custom 3D armor models, legendary weapons like Andúril, and a rebalanced crafting economy.",
+        image: "/vibecoding/lotr.png",
+        link: "#"
+    },
+    {
+        title: "Neuronouveau Portfolio",
+        description: "An immersive academic portfolio designed with a unique 'Neuronouveau' aesthetic, featuring interactive Tarot navigation and dynamic React components.",
+        image: "/vibecoding/portfolio.png",
+        link: "https://themattviana.github.io"
+    },
+    {
+        title: "Secure App Deployment",
+        description: "Automated CI/CD pipeline for cross-platform desktop apps, handling secure signing, installer generation, and cloud distribution.",
+        image: "/vibecoding/deployment.png",
+        link: "#"
+    },
 ];

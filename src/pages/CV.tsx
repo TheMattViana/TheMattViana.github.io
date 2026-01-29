@@ -73,12 +73,7 @@ const CV = () => {
 
                             {/* Main Content */}
                             <main className="space-y-10">
-                                <section>
-                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Research Interests</h3>
-                                    <p className="text-sm leading-relaxed opacity-80 text-justify">
-                                        My research operates at the intersection of human-computer interaction and AI interpretability, focusing on the internal decision-making processes of Large Language Models (LLMs). I investigate how user interactions with these complex 'black box' systems can change and expose unintended model behaviors, such as my previous collaboration on uncovering sycophancy and perspective mimesis. The goal is to move beyond simply observing these behaviors by building user-facing tools to probe, understand, and ultimately steer the model's internal logic, enhancing its transparency and reliability.
-                                    </p>
-                                </section>
+
 
                                 <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Education</h3>
