@@ -6,6 +6,7 @@ import Academic from './pages/Academic';
 import Vibecoding from './pages/Vibecoding';
 import Collaborators from './pages/Collaborators';
 import CV from './pages/CV';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
         <Route path="/vibecoding" element={<Vibecoding />} />
         <Route path="/collaborators" element={<Collaborators />} />
         <Route path="/cv" element={<CV />} />
+        <Route path="/contact" element={<Contact />} />
 
         {/* Fallbacks for placeholders */}
         <Route path="/news" element={<div className="min-h-screen bg-charcoal flex items-center justify-center text-gold-antique font-serif text-2xl">News Coming Soon</div>} />
-        <Route path="/contact" element={<div className="min-h-screen bg-charcoal flex items-center justify-center text-gold-antique font-serif text-2xl">Contact Me at hello@mattviana.com</div>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

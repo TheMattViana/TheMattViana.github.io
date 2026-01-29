@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { missionStatement } from '../data/heroContent';
-import frame from '../assets/frame.png';
-import portrait from '../assets/portrait.png';
+import portrait from '../assets/matt_portrait_nouveau - January 28, 2026 at 18.16.07.png';
 import { Feather } from 'lucide-react';
 
 interface HeroBookProps {
@@ -54,20 +53,27 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
             </div>
 
             <div className="w-full md:w-[40%] flex items-center justify-center p-8 bg-gradient-to-b from-emerald-deep to-charcoal md:bg-none relative">
-                <div className="relative w-72 h-72 md:w-96 md:h-96 group">
-                    <div className="absolute -inset-4 bg-gold-antique/30 blur-3xl rounded-full opacity-60 animate-pulse"></div>
-                    <div className="absolute inset-[10%] w-[80%] h-[80%] overflow-hidden rounded-lg">
+                <div className="relative w-full max-w-[400px] aspect-square group">
+                    {/* Backlight */}
+                    <div className="absolute -inset-8 bg-gold-antique/40 blur-3xl rounded-full opacity-70 animate-pulse"></div>
+
+                    {/* Image Container with Border and Rounding */}
+                    <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-4 border-gold-antique shadow-2xl bg-charcoal">
                         <img
                             src={portrait}
-                            alt="The Alchemist"
-                            className="w-full h-full object-cover sepia-[0.3] contrast-125"
+                            alt="Matt Viana"
+                            className="w-full h-full object-cover"
                         />
                     </div>
-                    <img
-                        src={frame}
-                        alt="Art Nouveau Frame"
-                        className="absolute inset-0 w-full h-full object-contain mix-blend-screen drop-shadow-2xl z-20 pointer-events-none"
-                    />
+                </div>
+
+                {/* Caption / Subtitle */}
+                <div className="mt-8 text-center max-w-sm">
+                    <p className="font-serif text-gold-antique text-lg leading-tight mb-2">PhD Student in Informatics at Penn State</p>
+                    <div className="h-px w-16 bg-gold-antique/30 mx-auto my-3"></div>
+                    <p className="font-sans text-cream/70 text-sm leading-relaxed">
+                        Data Scientist and AI researcher, seeking to leverage and understand deep learning for impactful solutions
+                    </p>
                 </div>
             </div>
         </section>

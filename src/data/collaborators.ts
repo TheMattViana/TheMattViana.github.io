@@ -16,7 +16,7 @@ export const collaborators: Collaborator[] = [
         id: "1",
         name: "Dana Calacci",
         affiliations: ["MIT Media Lab", "Postdoctoral Fellow"],
-        projects: ["Working Futures", "Algorithmic Fairness Study"],
+        projects: ["Working Futures", "Interaction Context Often Increases Sycophancy in LLMs"],
         links: [
             { label: "Website", url: "https://www.dcalacci.net/" },
             { label: "Working Futures", url: "https://workingfutures.net/" }
@@ -24,20 +24,23 @@ export const collaborators: Collaborator[] = [
     },
     {
         id: "2",
-        name: "Alex Smith",
-        affiliations: ["University of Oxford"],
-        projects: ["Semantic Segmentation in Medical Imaging"],
-        links: [
-            { label: "Google Scholar", url: "#" }
-        ]
+        name: "Shomik Jain",
+        affiliations: ["Researcher"],
+        projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
+        links: []
     },
     {
         id: "3",
-        name: "Jane Doe",
-        affiliations: ["Tech Studio Inc."],
-        projects: ["Generative Flora", "The Void"],
-        links: [
-            { label: "Twitter", url: "#" }
-        ]
+        name: "Charlotte Park",
+        affiliations: ["Researcher"],
+        projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
+        links: []
+    },
+    {
+        id: "4",
+        name: "Ashia Wilson",
+        affiliations: ["M.I.T"],
+        projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
+        links: []
     }
 ];
