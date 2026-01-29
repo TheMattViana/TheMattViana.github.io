@@ -15,32 +15,38 @@ export const collaborators: Collaborator[] = [
     {
         id: "1",
         name: "Dana Calacci",
-        affiliations: ["MIT Media Lab", "Postdoctoral Fellow"],
+        affiliations: ["Assistant Professor", "Pennsylvania State University"],
         projects: ["Working Futures", "Interaction Context Often Increases Sycophancy in LLMs"],
         links: [
-            { label: "Website", url: "https://www.dcalacci.net/" },
-            { label: "Working Futures", url: "https://workingfutures.net/" }
+            { label: "Google Scholar", url: "https://scholar.google.com/citations?user=g13Vo5oAAAAJ&hl=en" },
+            { label: "Website", url: "https://www.dcalacci.net/" }
         ]
     },
     {
         id: "2",
         name: "Shomik Jain",
-        affiliations: ["Researcher"],
+        affiliations: ["MIT IDSS PhD Candidate"],
         projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
-        links: []
+        links: [
+            { label: "Google Scholar", url: "https://scholar.google.com/citations?user=KXHdjLoAAAAJ&hl=en" }
+        ]
     },
     {
         id: "3",
         name: "Charlotte Park",
-        affiliations: ["Researcher"],
+        affiliations: ["EECS PhD Student, MIT"],
         projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
-        links: []
+        links: [
+            { label: "Google Scholar", url: "https://scholar.google.com/citations?user=PFc9lJkAAAAJ&hl=en" }
+        ]
     },
     {
         id: "4",
-        name: "Ashia Wilson",
-        affiliations: ["M.I.T"],
+        name: "Ashia C. Wilson",
+        affiliations: ["Assistant Professor at MIT"],
         projects: ["Interaction Context Often Increases Sycophancy in LLMs"],
-        links: []
+        links: [
+            { label: "Google Scholar", url: "https://scholar.google.com/citations?user=sV61CtsAAAAJ&hl=en" }
+        ]
     }
 ];

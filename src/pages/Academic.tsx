@@ -1,9 +1,7 @@
 import Layout from '../components/Layout';
 
 const academicProjects = [
-    { title: "Interaction Context Often Increases Sycophancy in LLMs", abstract: "An empirical study investigating how interaction context, including long-context and personalization, influences sycophancy in Large Language Models. Keywords: sycophancy, long-context, personalization, mirroring, alignment.", authors: "S. Jain, C. Park, M. Viana, A. Wilson, D. Calacci", link: "/writing_sample.pdf" },
-    { title: "Semantic Segmentation in Medical Imaging", abstract: "Novel architecture for low-resource environments applied to MRI datasets.", authors: "M. Viana, A. Smith", link: "#" },
-    { title: "Algorithmic Fairness in hiring", abstract: "Analyzing bias in automated resume screening systems.", authors: "J. Doe, M. Viana", link: "#" },
+    { title: "Interaction Context Often Increases Sycophancy in LLMs", abstract: "An empirical study investigating how interaction context, including long-context and personalization, influences sycophancy in Large Language Models. Keywords: sycophancy, long-context, personalization, mirroring, alignment.", authors: "S. Jain, C. Park, M. Viana, A. Wilson, D. Calacci", link: "https://arxiv.org/pdf/2509.12517" },
 ];
 
 const Academic = () => {
@@ -28,7 +26,7 @@ const Academic = () => {
                                 <p className="font-sans text-sm text-cream/70 mb-6 line-clamp-3">{p.abstract}</p>
                                 <div className="flex justify-between items-end border-t border-cream/10 pt-4">
                                     <span className="text-xs text-cream/50 italic">{p.authors}</span>
-                                    <button className="text-gold-antique text-sm hover:underline">Read More &rarr;</button>
+                                    <a href={p.link} target="_blank" rel="noreferrer" className="text-gold-antique text-sm hover:underline">Read Paper &rarr;</a>
                                 </div>
                             </div>
                         ))}
