@@ -8,6 +8,8 @@ import Collaborators from './pages/Collaborators';
 import CV from './pages/CV';
 import Contact from './pages/Contact';
 
+import News from './pages/News';
+
 function App() {
   return (
     <Router>
@@ -15,14 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/news" element={<News />} />
         <Route path="/academic" element={<Academic />} />
         <Route path="/vibecoding" element={<Vibecoding />} />
         <Route path="/collaborators" element={<Collaborators />} />
         <Route path="/cv" element={<CV />} />
         <Route path="/contact" element={<Contact />} />
 
-        {/* Fallbacks for placeholders */}
-        <Route path="/news" element={<div className="min-h-screen bg-charcoal flex items-center justify-center text-gold-antique font-serif text-2xl">News Coming Soon</div>} />
+
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
