@@ -38,7 +38,7 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
             } else {
                 clearInterval(interval);
             }
-        }, 50);
+        }, 15); // Faster typing for longer text
 
         return () => clearInterval(interval);
     }, [disableTyping, targetText]);
@@ -46,13 +46,13 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
     return (
         <section className="min-h-screen md:min-h-[80vh] flex flex-col md:flex-row bg-emerald-deep relative overflow-hidden">
             <div className="w-full md:w-[60%] p-8 md:p-20 flex flex-col justify-center relative z-10">
-                <div className="font-serif text-2xl md:text-4xl leading-relaxed text-cream tracking-wide">
+                <div className="font-serif text-lg md:text-xl leading-relaxed text-cream tracking-wide text-justify">
                     <span>{displayText}</span>
                     {!disableTyping && <CustomCursor />}
                 </div>
             </div>
 
-            <div className="w-full md:w-[40%] flex items-center justify-center p-8 bg-gradient-to-b from-emerald-deep to-charcoal md:bg-none relative">
+            <div className="w-full md:w-[40%] flex flex-col items-center justify-center p-8 bg-gradient-to-b from-emerald-deep to-charcoal md:bg-none relative">
                 <div className="relative w-full max-w-[400px] aspect-square group">
                     {/* Backlight */}
                     <div className="absolute -inset-8 bg-gold-antique/40 blur-3xl rounded-full opacity-70 animate-pulse"></div>
