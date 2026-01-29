@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { missionStatement } from '../data/heroContent';
-import portrait from '../assets/matt_portrait_nouveau - January 28, 2026 at 18.16.07.png';
+import portrait from '../assets/matt_portrait_main.png';
 import { Feather } from 'lucide-react';
 
 interface HeroBookProps {
