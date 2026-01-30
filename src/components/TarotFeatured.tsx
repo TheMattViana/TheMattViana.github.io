@@ -26,8 +26,9 @@ const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippe
                 style={{ transformStyle: 'preserve-3d' }}
             >
                 {/* Front (Content) */}
-                <div
-                    className="absolute inset-[2px] bg-cream border-[6px] border-double border-gold-antique p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden rounded-sm"
+                <a
+                    href={snippet.linkUrl}
+                    className="absolute inset-[2px] bg-cream border-[6px] border-double border-gold-antique p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden rounded-sm cursor-pointer hover:bg-cream/90 transition-colors"
                     style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
                 >
                     <div className="absolute inset-2 border border-emerald-deep/20 pointer-events-none"></div>
@@ -35,10 +36,10 @@ const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippe
                     <h3 className="font-serif text-emerald-deep text-lg md:text-xl font-bold mb-4 z-10">{snippet.title}</h3>
                     <p className="font-sans text-charcoal text-opacity-80 leading-relaxed z-10 text-xs md:text-sm line-clamp-6">{snippet.content}</p>
 
-                    <a href={snippet.linkUrl} className="mt-6 font-serif text-gold-antique italic hover:underline z-10 text-sm">
+                    <span className="mt-6 font-serif text-gold-antique italic z-10 text-sm group-hover:underline">
                         Read Entry
-                    </a>
-                </div>
+                    </span>
+                </a>
 
                 {/* Back (Pattern Asset) */}
                 <div
