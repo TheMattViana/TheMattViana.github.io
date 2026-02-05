@@ -31,10 +31,11 @@ const CV = () => {
                                 <section>
                                     <h3 className="font-serif text-xl font-bold mb-4 uppercase text-emerald-deep">Contact</h3>
                                     <ul className="text-sm space-y-2 font-sans opacity-80">
-                                        <li>State College, PA</li>
+                                        <li>Westgate Building, University Park, PA 16802 Room E311</li>
                                         <li><a href="mailto:mmv5513@psu.edu" className="hover:text-emerald-deep">mmv5513@psu.edu</a></li>
                                         <li><a href="https://themattviana.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">themattviana.github.io</a></li>
                                         <li><a href="https://linkedin.com/in/matt-viana" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">linkedin.com/in/matt-viana</a></li>
+                                        <li><a href="https://orcid.org/0009-0006-7911-3885" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">ORCID: 0009-0006-7911-3885</a></li>
                                     </ul>
                                 </section>
 
@@ -54,6 +55,14 @@ const CV = () => {
                                             <p className="text-xs opacity-80 leading-relaxed">Python, R, SQL</p>
                                         </div>
                                     </div>
+                                </section>
+
+                                <section>
+                                    <h3 className="font-serif text-xl font-bold mb-4 uppercase text-emerald-deep">Memberships</h3>
+                                    <ul className="text-sm space-y-2 font-sans opacity-80">
+                                        <li>Association for Computing Machinery (ACM)</li>
+                                        <li>Center for Socially Responsible Artificial Intelligence (CSRAI)</li>
+                                    </ul>
                                 </section>
 
                                 <section>
