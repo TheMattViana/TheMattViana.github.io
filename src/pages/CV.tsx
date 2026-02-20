@@ -145,6 +145,15 @@ const CV = () => {
                                 </section>
 
                                 <section>
+                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Invited Talks</h3>
+                                    <div>
+                                        <h4 className="font-bold text-lg">Guest Research Talk</h4>
+                                        <p className="text-sm italic text-gray-600 mb-1">Plain Text Lab (Dr. Jonathan Dodge), Pennsylvania State University | Feb 2026</p>
+                                        <p className="text-sm opacity-80">Presented research on LLM interaction and adoption.</p>
+                                    </div>
+                                </section>
+
+                                <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Mentoring</h3>
                                     <div>
                                         <h4 className="font-bold text-lg">Graduate Mentor</h4>

@@ -3,6 +3,18 @@ import Layout from '../components/Layout';
 
 const newsItems = [
     {
+        date: "February 2026",
+        title: "Sycophancy Paper Featured in MIT News",
+        content: (
+            <div>
+                <p className="font-sans text-cream/80 text-sm mb-3 text-justify leading-relaxed">
+                    Our research on how personalization features can make LLMs more agreeable was featured in <span className="text-gold-antique">MIT News</span>!
+                </p>
+                <a href="https://news.mit.edu/2026/personalization-features-can-make-llms-more-agreeable-0218" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-300 hover:text-emerald-400 hover:underline transition-colors mt-2 inline-block">Read the article &rarr;</a>
+            </div>
+        )
+    },
+    {
         date: "January 2026",
         title: "Accepted at CHI 2026",
         content: (

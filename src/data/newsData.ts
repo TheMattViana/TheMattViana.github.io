@@ -3,6 +3,12 @@
 // Using a simple object structure that we can easily map for snippets
 export const newsData = [
     {
+        date: "February 2026",
+        title: "Sycophancy Paper Featured in MIT News",
+        description: "Our research on how personalization features can make LLMs more agreeable was featured in MIT News.",
+        link: "https://news.mit.edu/2026/personalization-features-can-make-llms-more-agreeable-0218"
+    },
+    {
         date: "January 2026",
         title: "Accepted at CHI 2026",
         description: "Interaction Context Often Increases Sycophancy in LLMs accepted for publication.",
