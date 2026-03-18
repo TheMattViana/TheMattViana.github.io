@@ -3,6 +3,18 @@ import Layout from '../components/Layout';
 
 const newsItems = [
     {
+        date: "March 2026",
+        title: "CHI Paper Featured in Penn State News",
+        content: (
+            <div>
+                <p className="font-sans text-cream/80 text-sm mb-3 text-justify leading-relaxed">
+                    Our CHI 2026 paper, <i className="text-gold-antique">Interaction Context Often Increases Sycophancy in LLMs</i>, received an <strong>Honorable Mention Award</strong> for outstanding contribution! Our work was also featured in <span className="text-gold-antique">Penn State News</span>.
+                </p>
+                <a href="https://www.psu.edu/news/information-sciences-and-technology/story/ai-powered-chatbots-can-become-too-agreeable-over-time" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-300 hover:text-emerald-400 hover:underline transition-colors mt-2 inline-block">Read the Penn State News article &rarr;</a>
+            </div>
+        )
+    },
+    {
         date: "February 2026",
         title: "Sycophancy Paper Featured in MIT News",
         content: (

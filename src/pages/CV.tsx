@@ -69,6 +69,10 @@ const CV = () => {
                                     <h3 className="font-serif text-xl font-bold mb-4 uppercase text-emerald-deep">Awards</h3>
                                     <ul className="text-sm space-y-3 font-sans opacity-80 text-left">
                                         <li>
+                                            <span className="font-bold block">Honorable Mention Award</span>
+                                            <span className="text-xs">ACM CHI, 2026</span>
+                                        </li>
+                                        <li>
                                             <span className="font-bold block">Rednor Graduate Fellowship</span>
                                             <span className="text-xs">College of IST, 2025-2026</span>
                                         </li>
@@ -116,8 +120,8 @@ const CV = () => {
                                 <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Publications</h3>
                                     <div>
-                                        <h4 className="font-bold text-lg leading-tight">Extended AI Interactions Shape Sycophancy and Perspective Mimesis</h4>
-                                        <p className="text-sm italic text-gray-600 mb-1">arXiv Details: arXiv:2509.12517 (Under Review at CHI '25)</p>
+                                        <h4 className="font-bold text-lg leading-tight">Interaction Context Often Increases Sycophancy in LLMs</h4>
+                                        <p className="text-sm italic text-gray-600 mb-1">ACM CHI 2026 (Honorable Mention Award)</p>
                                         <p className="text-sm text-gray-800">S. Jain, C. Park, <b>M. M. Viana</b>, A. Wilson, D. Calacci</p>
                                         <a href="https://arxiv.org/abs/2509.12517" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-deep hover:underline mt-1 inline-block">View Paper &rarr;</a>
                                     </div>

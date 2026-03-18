@@ -3,6 +3,12 @@
 // Using a simple object structure that we can easily map for snippets
 export const newsData = [
     {
+        date: "March 2026",
+        title: "CHI Paper Receives Honorable Mention",
+        description: "Our CHI 2026 paper received an Honorable Mention Award and was featured in Penn State News.",
+        link: "https://www.psu.edu/news/information-sciences-and-technology/story/ai-powered-chatbots-can-become-too-agreeable-over-time"
+    },
+    {
         date: "February 2026",
         title: "Sycophancy Paper Featured in MIT News",
         description: "Our research on how personalization features can make LLMs more agreeable was featured in MIT News.",
