@@ -27,7 +27,9 @@ const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippe
             >
                 {/* Front (Content) */}
                 <a
-                    href={snippet.linkUrl}
+                    href={snippet.linkUrl.startsWith('/') && !snippet.linkUrl.endsWith('.pdf') ? `#${snippet.linkUrl}` : snippet.linkUrl}
+                    target={snippet.linkUrl.startsWith('/') ? '_self' : '_blank'}
+                    rel="noopener noreferrer"
                     className="absolute inset-[2px] bg-cream border-[6px] border-double border-gold-antique p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden rounded-sm cursor-pointer hover:bg-cream/90 transition-colors"
                     style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
                 >

@@ -10,7 +10,7 @@ export const vibecodingProjects = [
         title: "Open Source Qualitative Coding App",
         description: "A free, open-source qualitative coding tool designed to fix usability issues in existing software. Built to provide a streamlined experience for researchers.",
         image: "/vibecoding/qualitative.png",
-        link: "https://themattviana.github.io/OpenSource-Qualitative-Coding-App/"
+        link: "https://themattviana.github.io/OpenQualCode/"
     },
     {
         title: "Neuronouveau Portfolio",
