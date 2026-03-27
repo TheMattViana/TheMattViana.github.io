@@ -156,7 +156,7 @@ const NavSystem: React.FC = () => {
                                     </div>
                                     <span>GitHub</span>
                                 </a>
-                                <a href="https://linkedin.com/in/mattviana/" target="_blank" rel="noreferrer" className="flex items-center space-x-2 text-cream/70 hover:text-gold-antique">
+                                <a href="https://www.linkedin.com/in/matt-viana/" target="_blank" rel="noreferrer" className="flex items-center space-x-2 text-cream/70 hover:text-gold-antique">
                                     <div className="w-8 h-8 rounded-full border border-gold-antique/30 overflow-hidden relative">
                                         <div className="w-full h-full absolute inset-0" style={{ ...getIconStyle(3, 2), backgroundPosition: '50% 100%' }}></div>
                                     </div>

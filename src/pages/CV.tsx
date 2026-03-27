@@ -34,7 +34,7 @@ const CV = () => {
                                         <li>Westgate Building, University Park, PA 16802 Room E311</li>
                                         <li><a href="mailto:mmv5513@psu.edu" className="hover:text-emerald-deep">mmv5513@psu.edu</a></li>
                                         <li><a href="https://themattviana.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">themattviana.github.io</a></li>
-                                        <li><a href="https://linkedin.com/in/matt-viana" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">linkedin.com/in/matt-viana</a></li>
+                                        <li><a href="https://www.linkedin.com/in/matt-viana/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">linkedin.com/in/matt-viana</a></li>
                                         <li><a href="https://orcid.org/0009-0006-7911-3885" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-deep">ORCID: 0009-0006-7911-3885</a></li>
                                     </ul>
                                 </section>
@@ -121,7 +121,7 @@ const CV = () => {
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Publications</h3>
                                     <div>
                                         <h4 className="font-bold text-lg leading-tight">Interaction Context Often Increases Sycophancy in LLMs</h4>
-                                        <p className="text-sm italic text-gray-600 mb-1">ACM CHI 2026 (Honorable Mention Award)</p>
+                                        <p className="text-sm italic text-gray-600 mb-1">ACM CHI 2026 (Accepted, Honorable Mention Award for Outstanding Contribution)</p>
                                         <p className="text-sm text-gray-800">S. Jain, C. Park, <b>M. M. Viana</b>, A. Wilson, D. Calacci</p>
                                         <a href="https://arxiv.org/abs/2509.12517" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-deep hover:underline mt-1 inline-block">View Paper &rarr;</a>
                                     </div>
@@ -134,16 +134,6 @@ const CV = () => {
                                             <h4 className="font-bold text-base">Active Negotiation: How Users Interact With and Adopt Large Language Models</h4>
                                             <p className="text-sm text-gray-800"><b>M. Viana</b>, P. Erickson, D. Calacci</p>
                                             <p className="text-xs italic opacity-70 mt-1">Draft available upon request</p>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-base">How Context Influences LLM Assumptions</h4>
-                                            <p className="text-sm text-gray-800"><b>M. Viana</b>, B. Jain, D. Calacci</p>
-                                            <p className="text-xs italic opacity-70 mt-1">In progress</p>
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-base">I Wish it Wouldn't Lie: Addressing Trust Eroding Design in LLMs</h4>
-                                            <p className="text-sm text-gray-800"><b>M. Viana</b>, D. Calacci</p>
-                                            <p className="text-xs italic opacity-70 mt-1">In progress</p>
                                         </div>
                                     </div>
                                 </section>

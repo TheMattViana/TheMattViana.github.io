@@ -7,7 +7,7 @@ const Footer = () => (
     <footer className="bg-charcoal text-cream/50 py-12 border-t border-gold-antique/10 text-center font-sans">
         <div className="flex justify-center space-x-6 mb-4">
             <a href="https://github.com/themattviana" className="hover:text-gold-antique transition-colors"><Github size={20} /></a>
-            <a href="https://linkedin.com/in/mattviana/" className="hover:text-gold-antique transition-colors"><Linkedin size={20} /></a>
+            <a href="https://www.linkedin.com/in/matt-viana/" className="hover:text-gold-antique transition-colors"><Linkedin size={20} /></a>
             <a href="mailto:hello@mattviana.com" className="hover:text-gold-antique transition-colors"><Mail size={20} /></a>
         </div>
         <p>&copy; {new Date().getFullYear()} Matt Viana. All rights reserved.</p>
