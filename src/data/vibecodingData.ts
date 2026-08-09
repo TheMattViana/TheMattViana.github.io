@@ -24,4 +24,10 @@ export const vibecodingProjects = [
         image: "/vibecoding/lotr.png",
         link: "https://github.com/TheMattViana/Minecraft_addon_mod"
     },
+    {
+        title: "EU4 Mod: Mongol Final Boss",
+        description: "A juggernaut mod for Europa Universalis IV: an AI Mongol Empire eats the map one subcontinent at a time, then hunts the human players. Pace is set by the group at game start.",
+        image: "/vibecoding/eu4_mongol.png",
+        link: "https://steamcommunity.com/sharedfiles/filedetails/?id=3780576378"
+    },
 ];
