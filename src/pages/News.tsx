@@ -3,14 +3,26 @@ import Layout from '../components/Layout';
 
 const newsItems = [
     {
+        date: "June 2026",
+        title: "Talk & Poster at AI and Social Research Conference",
+        content: (
+            <div>
+                <p className="font-sans text-cream/80 text-sm mb-3 leading-relaxed">
+                    Presented a short talk on <i className="text-gold-antique">Interaction Context Often Increases Sycophancy in LLMs</i> and a poster on <i className="text-gold-antique">Active Negotiation: How Users Interact With and Adopt Large Language Models</i> at <span className="text-gold-antique">AI and Social Research: Empathic AI, Metascience, and Methodology</span>, hosted by the Consortium on Moral Decision-Making and the Center for Social Data Analytics at Penn State.
+                </p>
+                <a href="https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/" target="_blank" rel="noopener noreferrer" className="text-xs text-gold-antique/80 hover:text-gold-antique hover:underline transition-colors mt-2 inline-block">View the conference program &rarr;</a>
+            </div>
+        )
+    },
+    {
         date: "March 2026",
         title: "CHI Paper Featured in Penn State News",
         content: (
             <div>
-                <p className="font-sans text-cream/80 text-sm mb-3 text-justify leading-relaxed">
+                <p className="font-sans text-cream/80 text-sm mb-3 leading-relaxed">
                     Our CHI 2026 paper, <i className="text-gold-antique">Interaction Context Often Increases Sycophancy in LLMs</i>, received an <strong>Honorable Mention Award</strong> for outstanding contribution! Our work was also featured in <span className="text-gold-antique">Penn State News</span>.
                 </p>
-                <a href="https://www.psu.edu/news/information-sciences-and-technology/story/ai-powered-chatbots-can-become-too-agreeable-over-time" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-300 hover:text-emerald-400 hover:underline transition-colors mt-2 inline-block">Read the Penn State News article &rarr;</a>
+                <a href="https://www.psu.edu/news/information-sciences-and-technology/story/ai-powered-chatbots-can-become-too-agreeable-over-time" target="_blank" rel="noopener noreferrer" className="text-xs text-gold-antique/80 hover:text-gold-antique hover:underline transition-colors mt-2 inline-block">Read the Penn State News article &rarr;</a>
             </div>
         )
     },
@@ -19,10 +31,10 @@ const newsItems = [
         title: "Sycophancy Paper Featured in MIT News",
         content: (
             <div>
-                <p className="font-sans text-cream/80 text-sm mb-3 text-justify leading-relaxed">
+                <p className="font-sans text-cream/80 text-sm mb-3 leading-relaxed">
                     Our research on how personalization features can make LLMs more agreeable was featured in <span className="text-gold-antique">MIT News</span>!
                 </p>
-                <a href="https://news.mit.edu/2026/personalization-features-can-make-llms-more-agreeable-0218" target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-300 hover:text-emerald-400 hover:underline transition-colors mt-2 inline-block">Read the article &rarr;</a>
+                <a href="https://news.mit.edu/2026/personalization-features-can-make-llms-more-agreeable-0218" target="_blank" rel="noopener noreferrer" className="text-xs text-gold-antique/80 hover:text-gold-antique hover:underline transition-colors mt-2 inline-block">Read the article &rarr;</a>
             </div>
         )
     },
@@ -32,12 +44,12 @@ const newsItems = [
         content: (
             <div>
                 <h4 className="font-serif text-xl text-gold-antique mb-2">Interaction Context Often Increases Sycophancy in LLMs</h4>
-                <p className="font-sans text-cream/80 text-sm mb-3 text-justify leading-relaxed">
+                <p className="font-sans text-cream/80 text-sm mb-3 leading-relaxed">
                     An empirical study investigating how interaction context, including long-context and personalization, influences sycophancy in Large Language Models.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-3">
                     {["Sycophancy", "Long-context", "Personalization", "Mirroring", "Alignment"].map(k => (
-                        <span key={k} className="text-[10px] uppercase tracking-wider text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-900/10">
+                        <span key={k} className="text-[10px] uppercase tracking-wider text-gold-antique/80 border border-gold-antique/30 px-2 py-0.5 rounded bg-gold-antique/5">
                             {k}
                         </span>
                     ))}

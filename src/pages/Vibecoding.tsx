@@ -11,9 +11,9 @@ const Vibecoding = () => {
 
                     <div className="mb-16 font-sans text-cream text-lg space-y-4 max-w-3xl">
                         <p className="font-serif text-xl italic text-gold-antique/80">Why vibecoding is improved by sharing:</p>
-                        <ul className="list-disc pl-5 space-y-2 marker:text-emerald-primary">
-                            <li><strong className="text-emerald-primary">Mastery through utilization:</strong> To truly improve AI systems, I believe one must be deeply experienced in using them in real-world contexts.</li>
-                            <li><strong className="text-emerald-primary">Execution capability:</strong> It demonstrates the ability to combine project management skills with technical execution—turning abstract ideas into deployed reality.</li>
+                        <ul className="list-disc pl-5 space-y-2 marker:text-gold-antique">
+                            <li><strong className="text-gold-antique">Mastery through utilization:</strong> To truly improve AI systems, I believe one must be deeply experienced in using them in real-world contexts.</li>
+                            <li><strong className="text-gold-antique">Execution capability:</strong> It demonstrates the ability to combine project management skills with technical execution—turning abstract ideas into deployed reality.</li>
                         </ul>
                     </div>
 

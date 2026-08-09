@@ -3,6 +3,12 @@
 // Using a simple object structure that we can easily map for snippets
 export const newsData = [
     {
+        date: "June 2026",
+        title: "Talk & Poster at AI and Social Research Conference",
+        description: "Presented a short talk on LLM sycophancy and a poster on Active Negotiation at AI and Social Research: Empathic AI, Metascience, and Methodology, hosted by the Consortium on Moral Decision-Making and the Center for Social Data Analytics at Penn State.",
+        link: "https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/"
+    },
+    {
         date: "March 2026",
         title: "CHI Paper Receives Honorable Mention",
         description: "Our CHI 2026 paper received an Honorable Mention Award and was featured in Penn State News.",

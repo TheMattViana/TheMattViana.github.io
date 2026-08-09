@@ -18,7 +18,7 @@ const Academic = () => {
                         {academicProjects.map((p, i) => (
                             <div key={i} className="bg-cream/5 border border-gold-antique/30 p-6 hover:bg-cream/10 transition-colors cursor-pointer group rounded-sm hover:-translate-y-1 duration-300">
                                 <div className="mb-4">
-                                    <span className="text-xs font-mono text-emerald-500 border border-emerald-500/30 px-2 py-1 rounded">PAPER</span>
+                                    <span className="text-xs font-mono text-gold-antique/80 border border-gold-antique/30 px-2 py-1 rounded">PAPER</span>
                                 </div>
                                 <h3 className="font-serif text-xl text-cream group-hover:text-gold-antique mb-3 leading-tight">{p.title}</h3>
                                 <p className="font-sans text-sm text-cream/70 mb-6 line-clamp-3">{p.abstract}</p>

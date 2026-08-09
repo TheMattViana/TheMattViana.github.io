@@ -32,13 +32,12 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
 
         let currentIndex = 0;
         const interval = setInterval(() => {
-            if (currentIndex <= targetText.length) {
-                setDisplayText(targetText.slice(0, currentIndex));
-                currentIndex++;
-            } else {
+            currentIndex = Math.min(currentIndex + 3, targetText.length);
+            setDisplayText(targetText.slice(0, currentIndex));
+            if (currentIndex >= targetText.length) {
                 clearInterval(interval);
             }
-        }, 15); // Faster typing for longer text
+        }, 15);
 
         return () => clearInterval(interval);
     }, [disableTyping, targetText]);
@@ -46,7 +45,7 @@ const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }
     return (
         <section className="min-h-screen md:min-h-[80vh] flex flex-col md:flex-row bg-emerald-deep relative overflow-hidden">
             <div className="w-full md:w-[60%] p-8 md:p-20 flex flex-col justify-center relative z-10">
-                <div className="font-serif text-xl md:text-3xl leading-relaxed text-cream tracking-wide text-justify">
+                <div className="font-serif text-xl md:text-3xl leading-relaxed text-cream tracking-wide">
                     <span>{displayText}</span>
                     {!disableTyping && <CustomCursor />}
                 </div>

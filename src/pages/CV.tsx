@@ -148,6 +148,22 @@ const CV = () => {
                                 </section>
 
                                 <section>
+                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Conference Presentations</h3>
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h4 className="font-bold text-base leading-tight">Interaction Context Often Increases Sycophancy in LLMs</h4>
+                                            <p className="text-sm text-gray-700 mb-1">Short Talk</p>
+                                            <p className="text-sm italic text-gray-600">AI and Social Research: Empathic AI, Metascience, and Methodology — Consortium on Moral Decision-Making &amp; Center for Social Data Analytics, Pennsylvania State University | Jun 2026</p>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-base leading-tight">Active Negotiation: How Users Interact With and Adopt Large Language Models</h4>
+                                            <p className="text-sm text-gray-700 mb-1">Poster Presentation</p>
+                                            <p className="text-sm italic text-gray-600">AI and Social Research: Empathic AI, Metascience, and Methodology — Consortium on Moral Decision-Making &amp; Center for Social Data Analytics, Pennsylvania State University | Jun 2026</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Mentoring</h3>
                                     <div>
                                         <h4 className="font-bold text-lg">Graduate Mentor</h4>
