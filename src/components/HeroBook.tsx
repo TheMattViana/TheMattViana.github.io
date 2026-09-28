@@ -22,18 +22,19 @@ const CustomCursor = () => (
 
 const HeroBook: React.FC<HeroBookProps> = ({ staticText, disableTyping = false }) => {
     const targetText = staticText || missionStatement;
-    const [displayText, setDisplayText] = useState(disableTyping ? targetText : '');
+    const [typedText, setTypedText] = useState('');
+    // Derived rather than stored, so the static case needs no effect at all.
+    const displayText = disableTyping ? targetText : typedText;
 
     useEffect(() => {
         if (disableTyping) {
-            setDisplayText(targetText);
             return;
         }
 
         let currentIndex = 0;
         const interval = setInterval(() => {
             currentIndex = Math.min(currentIndex + 3, targetText.length);
-            setDisplayText(targetText.slice(0, currentIndex));
+            setTypedText(targetText.slice(0, currentIndex));
             if (currentIndex >= targetText.length) {
                 clearInterval(interval);
             }

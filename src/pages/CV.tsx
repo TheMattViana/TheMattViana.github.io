@@ -60,8 +60,8 @@ const CV = () => {
                                 <section>
                                     <h3 className="font-serif text-xl font-bold mb-4 uppercase text-emerald-deep">Memberships</h3>
                                     <ul className="text-sm space-y-2 font-sans opacity-80">
-                                        <li>Association for Computing Machinery (ACM)</li>
-                                        <li>Center for Socially Responsible Artificial Intelligence (CSRAI)</li>
+                                        <li>Association for Computing Machinery (ACM) <span className="block text-xs opacity-70">2025 – Present</span></li>
+                                        <li>Center for Socially Responsible Artificial Intelligence (CSRAI) <span className="block text-xs opacity-70">2025 – Present</span></li>
                                     </ul>
                                 </section>
 
@@ -73,7 +73,7 @@ const CV = () => {
                                             <span className="text-xs">ACM CHI, 2026</span>
                                         </li>
                                         <li>
-                                            <span className="font-bold block">Rednor Graduate Fellowship</span>
+                                            <span className="font-bold block">Jordan Rednor Scholarship</span>
                                             <span className="text-xs">College of IST, 2025-2026</span>
                                         </li>
                                         <li>
@@ -105,15 +105,30 @@ const CV = () => {
                                 </section>
 
                                 <section>
-                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Experience</h3>
-                                    <div>
-                                        <h4 className="font-bold text-lg">Graduate Research Assistant</h4>
-                                        <p className="text-sm italic text-gray-600 mb-3">Working Futures Network, Penn State | Aug 2025 – Present</p>
-                                        <ul className="text-sm list-disc pl-4 space-y-2 opacity-80">
-                                            <li>Investigate user behavior and adoption patterns of Large Language Models (LLMs) in real-world settings.</li>
-                                            <li>Conduct qualitative research and system audits to identify security vulnerabilities and privacy concerns in AI systems.</li>
-                                            <li>Develop novel user feedback mechanisms to mitigate AI mirroring behaviors such as sycophancy.</li>
-                                        </ul>
+                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Research Experience</h3>
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h4 className="font-bold text-lg">Graduate Research Assistant</h4>
+                                            <p className="text-sm italic text-gray-600 mb-3">Working Futures Network, Penn State | Aug 2025 – Present</p>
+                                            <p className="text-sm opacity-80 mb-2">Supervisor: Dr. Dana Calacci</p>
+                                            <ul className="text-sm list-disc pl-4 space-y-2 opacity-80">
+                                                <li>Investigate user behavior and adoption patterns of Large Language Models (LLMs) in real-world settings.</li>
+                                                <li>Conduct qualitative research and system audits to identify security vulnerabilities and privacy concerns in AI systems.</li>
+                                                <li>Develop novel user feedback mechanisms to mitigate AI mirroring behaviors such as sycophancy and perspective mimesis.</li>
+                                                <li>Collaborate on research projects exploring the interpretability of "black box" AI models.</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-lg">AI Research Assistant</h4>
+                                            <p className="text-sm italic text-gray-600 mb-3">Pennsylvania State University | Feb 2024 – Jan 2025</p>
+                                            <p className="text-sm opacity-80 mb-2">Adviser: Dr. Sharon Huang</p>
+                                            <ul className="text-sm list-disc pl-4 space-y-2 opacity-80">
+                                                <li>Fine-tuned large language models (LLMs) using TensorFlow and PyCharm, incorporating an improved dataset and model published on Hugging Face.</li>
+                                                <li>Conducted a literature review on multimodal emotional classification and interaction in large language models (LLMs).</li>
+                                                <li>Researched NLP and Computer Vision techniques, focusing on the development of models to analyze a wide emotional spectrum.</li>
+                                                <li>Ran experiments integrating audio, visual, and textual inputs into language models, utilizing clustering techniques and data augmentation.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </section>
 
@@ -128,22 +143,33 @@ const CV = () => {
                                 </section>
 
                                 <section>
-                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Manuscripts & Working Papers</h3>
-                                    <div className="space-y-4">
+                                    <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Under Review</h3>
+                                    <div className="space-y-6">
                                         <div>
-                                            <h4 className="font-bold text-base">Active Negotiation: How Users Interact With and Adopt Large Language Models</h4>
-                                            <p className="text-sm text-gray-800"><b>M. Viana</b>, P. Erickson, D. Calacci</p>
-                                            <p className="text-xs italic opacity-70 mt-1">Draft available upon request</p>
+                                            <h4 className="font-bold text-lg leading-tight">What Changes Inside an LLM When Memory Replaces Your History</h4>
+                                            <p className="text-sm italic text-gray-600 mb-1">International Conference on Learning Representations (ICLR 2027), Under Review</p>
+                                            <p className="text-sm text-gray-800"><b>M. Viana</b>, D. Calacci</p>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-lg leading-tight">&ldquo;If You&rsquo;re Not Doing It, Somebody Else Is&rdquo;: Active Negotiation and the Invisible Labor of Sustained LLM Use</h4>
+                                            <p className="text-sm italic text-gray-600 mb-1">ACM CHI 2027, Under Review</p>
+                                            <p className="text-sm text-gray-800"><b>M. Viana</b>, P. Erickson, S. Wilson, D. Calacci</p>
                                         </div>
                                     </div>
                                 </section>
 
                                 <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Invited Talks</h3>
-                                    <div>
-                                        <h4 className="font-bold text-lg">Guest Research Talk</h4>
-                                        <p className="text-sm italic text-gray-600 mb-1">Plain Text Lab (Dr. Jonathan Dodge), Pennsylvania State University | Feb 2026</p>
-                                        <p className="text-sm opacity-80">Presented research on LLM interaction and adoption.</p>
+                                    <div className="space-y-6">
+                                        <div>
+                                            <h4 className="font-bold text-lg">Guest Research Talk</h4>
+                                            <p className="text-sm italic text-gray-600 mb-1">Plain Text Lab (Dr. Jonathan Dodge), Pennsylvania State University | Feb 2026</p>
+                                            <p className="text-sm opacity-80">Presented research on LLM interaction and adoption.</p>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-lg">Rising Researcher Talk</h4>
+                                            <p className="text-sm italic text-gray-600 mb-1">Institute for Computational and Data Sciences, Pennsylvania State University | Dec 2025</p>
+                                        </div>
                                     </div>
                                 </section>
 
@@ -166,9 +192,9 @@ const CV = () => {
                                 <section>
                                     <h3 className="font-serif text-2xl font-bold mb-6 border-b border-gray-200 pb-2">Mentoring</h3>
                                     <div>
-                                        <h4 className="font-bold text-lg">Graduate Mentor</h4>
+                                        <h4 className="font-bold text-lg">Patrick Erickson</h4>
                                         <p className="text-sm italic text-gray-600 mb-1">Pennsylvania State University | June 2025 – Present</p>
-                                        <p className="text-sm opacity-80">Mentored undergraduate students on research projects focused on the adoption and integration of LLMs.</p>
+                                        <p className="text-sm opacity-80">Undergraduate B.S. in Data Science. Research project focused on the adoption and integration of LLMs.</p>
                                     </div>
                                 </section>
 

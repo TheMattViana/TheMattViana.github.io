@@ -1,5 +1,5 @@
 import { academicProjects } from './academicData';
-import { newsData } from './newsData';
+import { newsData, plainText } from './newsData';
 import { collaborators } from './collaborators';
 import { vibecodingProjects } from './vibecodingData';
 
@@ -20,8 +20,8 @@ const generateSnippets = (): Snippet[] => {
         snippets.push({
             id: idCounter++,
             title: item.title,
-            content: `${item.date} - ${item.description}`,
-            linkUrl: item.link,
+            content: plainText(`${item.date} - ${item.description}`),
+            linkUrl: item.link ?? '/news',
             type: 'news'
         });
     });
@@ -30,9 +30,9 @@ const generateSnippets = (): Snippet[] => {
     academicProjects.forEach(paper => {
         snippets.push({
             id: idCounter++,
-            title: "Latest Publication",
+            title: paper.link ? "Latest Publication" : "Under Review",
             content: paper.title, // Paper title as content to keep it shorter? Or Abstract? Title is better for card.
-            linkUrl: paper.link,
+            linkUrl: paper.link ?? '/academic',
             type: 'paper'
         });
         // Add another card for abstract
@@ -40,7 +40,7 @@ const generateSnippets = (): Snippet[] => {
             id: idCounter++,
             title: "Research Abstract",
             content: paper.abstract,
-            linkUrl: paper.link,
+            linkUrl: paper.link ?? '/academic',
             type: 'paper'
         });
     });
@@ -50,7 +50,7 @@ const generateSnippets = (): Snippet[] => {
         snippets.push({
             id: idCounter++,
             title: "Research Collaborator",
-            content: `${collab.name}, ${collab.affiliations[0]} - ${collab.affiliations[1] || ''}`,
+            content: [collab.name, ...collab.affiliations].filter(Boolean).join(', '),
             linkUrl: "/collaborators",
             type: 'collab'
         });

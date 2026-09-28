@@ -1,6 +1,12 @@
 
 export const vibecodingProjects = [
     {
+        title: "EU4 Map Viewer (Discord Bot)",
+        description: "Drop a Europa Universalis IV save into Discord and the whole group can read it: five world map modes, sortable leaderboards, and every war and battle the campaign ever fought. Uploaded saves are deleted after ten minutes. Click to add it to your server.",
+        image: "/vibecoding/eu4_viewer.png",
+        link: "https://discord.com/oauth2/authorize?client_id=1403744754172432414&scope=bot%20applications.commands&permissions=117760"
+    },
+    {
         title: "Hobbit DnD Adaptation",
         description: "A personalized DnD 5e toolkit that automates complex calculations and tracks player data in the background, allowing the group to focus on the fun.",
         image: "/vibecoding/hobbit_dnd.png",

@@ -28,7 +28,7 @@ const TarotCard = ({ snippet, isOpen, isMobile, backVariant }: { snippet: Snippe
                 {/* Front (Content) */}
                 <a
                     href={snippet.linkUrl.startsWith('/') && !snippet.linkUrl.endsWith('.pdf') ? `#${snippet.linkUrl}` : snippet.linkUrl}
-                    target={snippet.linkUrl.startsWith('/') ? '_self' : '_blank'}
+                    target={snippet.linkUrl.startsWith('/') && !snippet.linkUrl.endsWith('.pdf') ? '_self' : '_blank'}
                     rel="noopener noreferrer"
                     className="absolute inset-[2px] bg-cream border-[6px] border-double border-gold-antique p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden rounded-sm cursor-pointer hover:bg-cream/90 transition-colors"
                     style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
@@ -76,17 +76,18 @@ const MobileTarotWrapper = ({ snippet, backVariant }: { snippet: Snippet, backVa
 };
 
 const TarotFeatured: React.FC = () => {
-    const [currentSnippets, setCurrentSnippets] = useState<Snippet[]>([]);
+    // Seeded on first render: starting empty painted an empty grid, and
+    // starting isMobile=false flashed the desktop layout on phones.
+    const [currentSnippets, setCurrentSnippets] = useState<Snippet[]>(() => getRandomSelection(6));
     const [isOpen, setIsOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(
+        () => typeof window !== 'undefined' && window.innerWidth < 768
+    );
     const [isHovered, setIsHovered] = useState(false);
     const [backVariant, setBackVariant] = useState<'emerald' | 'cream'>('emerald');
 
-    // Initialize
     useEffect(() => {
-        setCurrentSnippets(getRandomSelection(6));
         const handleResize = () => setIsMobile(window.innerWidth < 768);
-        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);

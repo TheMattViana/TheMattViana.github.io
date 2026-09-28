@@ -24,7 +24,11 @@ const Academic = () => {
                                 <p className="font-sans text-sm text-cream/70 mb-6 line-clamp-3">{p.abstract}</p>
                                 <div className="flex justify-between items-end border-t border-cream/10 pt-4">
                                     <span className="text-xs text-cream/50 italic">{p.authors}</span>
-                                    <a href={p.link} target="_blank" rel="noreferrer" className="text-gold-antique text-sm hover:underline">Read Paper &rarr;</a>
+                                    {p.link ? (
+                                        <a href={p.link} target="_blank" rel="noreferrer" className="text-gold-antique text-sm hover:underline">Read Paper &rarr;</a>
+                                    ) : (
+                                        <span className="text-xs font-mono text-cream/50 whitespace-nowrap ml-4">{p.status}</span>
+                                    )}
                                 </div>
                             </div>
                         ))}
